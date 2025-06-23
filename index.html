@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monocular Depth Estimation based on Diffusion Model</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="section-title">Monocular Depth Estimation based on Diffusion Model</h1>
+    
+    <!-- 4:3比例轮播 (一行3个) -->
+    <div class="carousel-section">
+      <h2 class="section-title">Gallery</h2>
+      <div class="carousel-wrapper carousel-4-3">
+        <button class="carousel-btn prev" disabled>&lt;</button>
+        <button class="carousel-btn next">&gt;</button>
+        
+        <div class="carousel">
+          <!-- Column 1 -->
+          <div class="column">
+            <!-- A -->
+            <div class="image-box">
+              <div class="image-comparison">
+                <div class="image-container">
+                  <div class="image-before" style="background-image: url(./image/test-image/inside-01.jpg);"></div>
+                  <div class="image-after" style="background-image: url(./image/depth_train/inside-01_pred_colored.png);"></div>
+                  <div class="image-label left">Input</div>
+                  <div class="image-label right">Ours</div>
+                </div>
+                <div class="divider"></div>
+              </div>
+            </div>
+            <!-- D -->
+            <div class="image-box">
+              <div class="image-comparison">
+                <div class="image-container">
+                  <div class="image-before" style="background-image: url(./image/depth_pretrain/inside-01_pred_colored.png);"></div>
+                  <div class="image-after" style="background-image: url(./image/depth_train/inside-01_pred_colored.png);"></div>
+                  <div class="image-label left">Marigold</div>
+                  <div class="image-label right">Ours</div>
+                </div>
+                <div class="divider"></div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Column 2 -->
+          <div class="column">
+            <!-- B -->
+            <div class="image-box">
+              <div class="image-comparison">
+                <div class="image-container">
+                  <div class="image-before" style="background-image: url(./image/test-image/inside-05.png);"></div>
+                  <div class="image-after" style="background-image: url(./image/depth_train/inside-05_pred_colored.png);"></div>
+                  <div class="image-label left">Input</div>
+                  <div class="image-label right">Ours</div>
+                </div>
+                <div class="divider"></div>
+              </div>
+            </div>
+            <!-- E -->
+            <div class="image-box">
+              <div class="image-comparison">
+                <div class="image-container">
+                  <div class="image-before" style="background-image: url(./image/depth_pretrain/inside-05_pred_colored.png);"></div>
+                  <div class="image-after" style="background-image: url(./image/depth_train/inside-05_pred_colored.png);"></div>
+                  <div class="image-label left">Marigold</div>
+                  <div class="image-label right">Ours</div>
+                </div>
+                <div class="divider"></div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Column 3 -->
+          <div class="column">
+            <!-- C -->
+            <div class="image-box">
+              <div class="image-comparison">
+                <div class="image-container">
+                  <div class="image-before" style="background-image: url(./image/test-image/inside-06.png);"></div>
+                  <div class="image-after" style="background-image: url(./image/depth_train/inside-06_pred_colored.png);"></div>
+                  <div class="image-label left">Input</div>
+                  <div class="image-label right">Ours</div>
+                </div>
+                <div class="divider"></div>
+              </div>
+            </div>
+            <!-- F -->
+            <div class="image-box">
+              <div class="image-comparison">
+                <div class="image-container">
+                  <div class="image-before" style="background-image: url(./image/depth_pretrain/inside-06_pred_colored.png);"></div>
+                  <div class="image-after" style="background-image: url(./image/depth_train/inside-06_pred_colored.png);"></div>
+                  <div class="image-label left">Marigold</div>
+                  <div class="image-label right">Ours</div>
+                </div>
+                <div class="divider"></div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Column 4 -->
+          <div class="column">
+            <!-- G -->
+            <div class="image-box">
+              <div class="image-comparison">
+                <div class="image-container">
+                  <div class="image-before" style="background-image: url(./image/test-image/inside-08.jpg);"></div>
+                  <div class="image-after" style="background-image: url(./image/depth_train/inside-08_pred_colored.png);"></div>
+                  <div class="image-label left">Input</div>
+                  <div class="image-label right">Ours</div>
+                </div>
+                <div class="divider"></div>
+              </div>
+            </div>
+            <!-- J -->
+            <div class="image-box">
+              <div class="image-comparison">
+                <div class="image-container">
+                  <div class="image-before" style="background-image: url(./image/depth_pretrain/inside-08_pred_colored.png);"></div>
+                  <div class="image-after" style="background-image: url(./image/depth_train/inside-08_pred_colored.png);"></div>
+                  <div class="image-label left">Marigold</div>
+                  <div class="image-label right">Ours</div>
+                </div>
+                <div class="divider"></div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Column 5 -->
+          <div class="column">
+            <!-- H -->
+            <div class="image-box">
+              <div class="image-comparison">
+                <div class="image-container">
+                  <div class="image-before" style="background-image: url(./image/test-image/synthetic-inside-01.jpg);"></div>
+                  <div class="image-after" style="background-image: url(./image/depth_train/synthetic-inside-01_pred_colored.png);"></div>
+                  <div class="image-label left">Input</div>
+                  <div class="image-label right">Ours</div>
+                </div>
+                <div class="divider"></div>
+              </div>
+            </div>
+            <!-- K -->
+            <div class="image-box">
+              <div class="image-comparison">
+                <div class="image-container">
+                  <div class="image-before" style="background-image: url(./image/depth_pretrain/synthetic-inside-01_pred_colored.png);"></div>
+                  <div class="image-after" style="background-image: url(./image/depth_train/synthetic-inside-01_pred_colored.png);"></div>
+                  <div class="image-label left">Marigold</div>
+                  <div class="image-label right">Ours</div>
+                </div>
+                <div class="divider"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="carousel-nav"></div>
+      </div>
+    </div>
+    
+    <!-- 3:4比例轮播 (一行5个) -->
+    <div class="carousel-section">
+      <div class="carousel-wrapper carousel-3-4">
+        <button class="carousel-btn prev" disabled>&lt;</button>
+        <button class="carousel-btn next">&gt;</button>
+        
+        <div class="carousel">
+          <!-- Column 1 -->
+          <div class="column">
+            <!-- A -->
+            <div class="image-box">
+              <div class="image-comparison">
+                <div class="image-container">
+                  <div class="image-before" style="background-image: url(./image/test-image/inside-02.jpg);"></div>
+                  <div class="image-after" style="background-image: url(./image/depth_pretrain/inside-02_pred_colored.png);"></div>
+                  <div class="image-label left">Input</div>
+                  <div class="image-label right">Ours</div>
+                </div>
+                <div class="divider"></div>
+              </div>
+            </div>
+            <!-- D -->
+            <div class="image-box">
+              <div class="image-comparison">
+                <div class="image-container">
+                  <div class="image-before" style="background-image: url(./image/depth_pretrain/inside-02_pred_colored.png);"></div>
+                  <div class="image-after" style="background-image: url(./image/depth_train/inside-02_pred_colored.png);"></div>
+                  <div class="image-label left">Marigold</div>
+                  <div class="image-label right">Ours</div>
+                </div>
+                <div class="divider"></div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Column 2 -->
+          <div class="column">
+            <!-- B -->
+            <div class="image-box">
+              <div class="image-comparison">
+                <div class="image-container">
+                  <div class="image-before" style="background-image: url(./image/test-image/inside-03.jpg);"></div>
+                  <div class="image-after" style="background-image: url(./image/depth_train/inside-03_pred_colored.png);"></div>
+                  <div class="image-label left">Input</div>
+                  <div class="image-label right">Ours</div>
+                </div>
+                <div class="divider"></div>
+              </div>
+            </div>
+            <!-- E -->
+            <div class="image-box">
+              <div class="image-comparison">
+                <div class="image-container">
+                  <div class="image-before" style="background-image: url(./image/depth_pretrain/inside-03_pred_colored.png);"></div>
+                  <div class="image-after" style="background-image: url(./image/depth_train/inside-03_pred_colored.png);"></div>
+                  <div class="image-label left">Marigold</div>
+                  <div class="image-label right">Ours</div>
+                </div>
+                <div class="divider"></div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Column 3 -->
+          <div class="column">
+            <!-- C -->
+            <div class="image-box">
+              <div class="image-comparison">
+                <div class="image-container">
+                  <div class="image-before" style="background-image: url(./image/test-image/outside-01.jpg);"></div>
+                  <div class="image-after" style="background-image: url(./image/depth_train/outside-01_pred_colored.png);"></div>
+                  <div class="image-label left">Input</div>
+                  <div class="image-label right">Ours</div>
+                </div>
+                <div class="divider"></div>
+              </div>
+            </div>
+            <!-- F -->
+            <div class="image-box">
+              <div class="image-comparison">
+                <div class="image-container">
+                  <div class="image-before" style="background-image: url(./image/depth_pretrain/outside-01_pred_colored.png);"></div>
+                  <div class="image-after" style="background-image: url(./image/depth_train/outside-01_pred_colored.png);"></div>
+                  <div class="image-label left">Marigold</div>
+                  <div class="image-label right">Ours</div>
+                </div>
+                <div class="divider"></div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Column 4 -->
+          <div class="column">
+            <!-- G -->
+            <div class="image-box">
+              <div class="image-comparison">
+                <div class="image-container">
+                  <div class="image-before" style="background-image: url(./image/test-image/outside-02.jpg);"></div>
+                  <div class="image-after" style="background-image: url(./image/depth_train/outside-02_pred_colored.png);"></div>
+                  <div class="image-label left">Input</div>
+                  <div class="image-label right">Ours</div>
+                </div>
+                <div class="divider"></div>
+              </div>
+            </div>
+            <!-- J -->
+            <div class="image-box">
+              <div class="image-comparison">
+                <div class="image-container">
+                  <div class="image-before" style="background-image: url(./image/depth_pretrain/outside-02_pred_colored.png);"></div>
+                  <div class="image-after" style="background-image: url(./image/depth_train/outside-02_pred_colored.png);"></div>
+                  <div class="image-label left">Marigold</div>
+                  <div class="image-label right">Ours</div>
+                </div>
+                <div class="divider"></div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Column 5 -->
+          <div class="column">
+            <!-- H -->
+            <div class="image-box">
+              <div class="image-comparison">
+                <div class="image-container">
+                  <div class="image-before" style="background-image: url(./image/test-image/outside-03.jpg);"></div>
+                  <div class="image-after" style="background-image: url(./image/depth_train/outside-03_pred_colored.png);"></div>
+                  <div class="image-label left">Input</div>
+                  <div class="image-label right">Ours</div>
+                </div>
+                <div class="divider"></div>
+              </div>
+            </div>
+            <!-- K -->
+            <div class="image-box">
+              <div class="image-comparison">
+                <div class="image-container">
+                  <div class="image-before" style="background-image: url(./image/depth_pretrain/outside-03_pred_colored.png);"></div>
+                  <div class="image-after" style="background-image: url(./image/depth_train/outside-03_pred_colored.png);"></div>
+                  <div class="image-label left">Marigold</div>
+                  <div class="image-label right">Ours</div>
+                </div>
+                <div class="divider"></div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Column 6 -->
+          <div class="column">
+            <!-- I -->
+            <div class="image-box">
+              <div class="image-comparison">
+                <div class="image-container">
+                  <div class="image-before" style="background-image: url(./image/test-image/outside-09.jpg);"></div>
+                  <div class="image-after" style="background-image: url(./image/depth_train/outside-09_pred_colored.png);"></div>
+                  <div class="image-label left">Input</div>
+                  <div class="image-label right">Ours</div>
+                </div>
+                <div class="divider"></div>
+              </div>
+            </div>
+            <!-- L -->
+            <div class="image-box">
+              <div class="image-comparison">
+                <div class="image-container">
+                  <div class="image-before" style="background-image: url(./image/depth_pretrain/outside-09_pred_colored.png);"></div>
+                  <div class="image-after" style="background-image: url(./image/depth_train/outside-09_pred_colored.png);"></div>
+                  <div class="image-label left">Marigold</div>
+                  <div class="image-label right">Ours</div>
+                </div>
+                <div class="divider"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="carousel-nav"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
